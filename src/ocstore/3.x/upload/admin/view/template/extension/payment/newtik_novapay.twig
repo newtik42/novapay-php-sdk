@@ -28,11 +28,11 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_order_status_init }}</label>
             <div class="col-sm-10">
-                <select name="payment_rozetkapay_order_status_init" class="form-control">
-                    <option value="0" {{ payment_rozetkapay_order_status_init == "0" ? 'selected="selected"':'' }} >---</option>
+                <select name="setting[order_status][init]" class="form-control">
+                    <option value="0" {{ setting.order_status.init == "0" ? 'selected="selected"':'' }} >---</option>
                     {% for order_status in order_statuses %}
                         <option value="{{ order_status.order_status_id }}"
-                                {% if  payment_rozetkapay_order_status_init == order_status.order_status_id %} selected="selected"{% endif %}
+                                {% if setting.order_status.init == order_status.order_status_id %} selected="selected"{% endif %}
                                 >{{ order_status.name }}</option>                                        
                     {% endfor %}
                 </select>
@@ -43,12 +43,12 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_order_status_pending }}</label>
             <div class="col-sm-10">
-                <select name="payment_rozetkapay_order_status_pending" class="form-control">
-                    <option value="0" {{ payment_rozetkapay_order_status_pending == "0" ? 'selected="selected"':'' }}
+                <select name="setting[order_status][pending]" class="form-control">
+                    <option value="0" {{ setting.order_status.pending == "0" ? 'selected="selected"':'' }}
                             >---</option>
                     {% for order_status in order_statuses %}
                         <option value="{{ order_status.order_status_id }}"
-                                {% if  payment_rozetkapay_order_status_pending == order_status.order_status_id %} selected="selected"{% endif %}
+                                {% if setting.order_status.pending == order_status.order_status_id %} selected="selected"{% endif %}
                                 >{{ order_status.name }}</option>                                        
                     {% endfor %}
                 </select>
@@ -59,10 +59,10 @@
         <div class="form-group required">
             <label class="col-sm-2 control-label">{{ text_order_status_success }}</label>
             <div class="col-sm-10">
-                <select name="payment_rozetkapay_order_status_success" class="form-control">
+                <select name="setting[order_status][success]" class="form-control">
                     {% for order_status in order_statuses %}
                         <option value="{{ order_status.order_status_id }}"
-                                {% if  payment_rozetkapay_order_status_success == order_status.order_status_id %}selected="selected"{% endif %}
+                                {% if setting.order_status.success == order_status.order_status_id %}selected="selected"{% endif %}
                                 >{{ order_status.name }}</option>                                        
                     {% endfor %}
                 </select>
@@ -75,10 +75,10 @@
         <div class="form-group required">
             <label class="col-sm-2 control-label">{{ text_order_status_failure }}</label>
             <div class="col-sm-10">
-                <select name="payment_rozetkapay_order_status_failure" class="form-control">
+                <select name="setting[order_status][failure]" class="form-control">
                     {% for order_status in order_statuses %}
                         <option value="{{ order_status.order_status_id }}"
-                                {% if  payment_rozetkapay_order_status_failure == order_status.order_status_id %} selected="selected"{% endif %}
+                                {% if setting.order_status.failure == order_status.order_status_id %} selected="selected"{% endif %}
                                 >{{ order_status.name }}</option>                                        
                     {% endfor %}
                 </select>
