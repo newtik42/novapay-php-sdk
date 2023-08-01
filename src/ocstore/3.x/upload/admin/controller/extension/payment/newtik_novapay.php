@@ -6,7 +6,7 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
     protected $code = 'newtik_novapay';
     protected $path = 'extension/payment/newtik_novapay';
     protected $type = 'payment';
-    protected $version = '1.1.14';
+    protected $version = '1.1.15';
     protected $setting;
     
     protected $mod_templeate_view_old = true;
@@ -17,6 +17,10 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
 		parent::index();
         
         $data['languages'] = $this->getLanguagesList();
+        
+        $this->load->model('localisation/order_status');
+        $data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+        
 
         
         $this->viewOutputIndex($data ?? []);
