@@ -17,11 +17,8 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane active" id="tab-general">
-
-
-
-    </div>
+    
+    <div class="tab-pane active" id="tab-general"></div>
 
     <div class="tab-pane" id="tab-order_status">
 
@@ -29,51 +26,7 @@
             {{ forms.Group_onoffswitch('setting[order_status][system]', setting.order_status.system, 
             text_payment_tab_order_status_system, text_help_payment_tab_order_status_system) }}
         </div>
-
-        <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <label class="control-label">{{ text_payment_tab_order_status_preprocessing }}</label>
-                </div>
-                <div class="panel-body">
-                    {{ forms.Select(order_statuses_, 'order_status_id', 'name', 'setting[order_status][preprocessing]', setting.order_status.preprocessing) }}
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <label class="control-label">{{ text_payment_tab_order_status_preprocessing }}</label>
-                </div>
-                <div class="panel-body">
-                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][processing]', setting.order_status.processing) }}
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="panel panel-info complete required">
-                <div class="panel-heading">
-                    <label class="control-label">{{ text_payment_tab_order_status_complete }}</label>
-                </div>
-                <div class="panel-body">
-                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][complete]', setting.order_status.complete, '', true) }}
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="panel panel-info failed required">
-                <div class="panel-heading ">
-                    <label class="control-label">{{ text_payment_tab_order_status_failed }}</label>
-                </div>
-                <div class="panel-body">
-                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][failed]', setting.order_status.failed, '', true) }}
-                </div>
-            </div>
-        </div>
-
+        sdgfdsfsdf
     </div>
 
     <div class="tab-pane" id="tab-view">
