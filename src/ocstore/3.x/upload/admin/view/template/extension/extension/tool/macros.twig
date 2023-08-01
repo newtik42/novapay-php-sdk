@@ -205,8 +205,10 @@ value = {
 {% macro InputTextLangs(languages, teb_name, name, values, type, entry, help) %}
     <ul class="nav nav-tabs" role="tablist">
         {% for language_id, language in languages %}
-            <li class="{{ loop.first ? 'active' }}"><a href="#{{ teb_name }}_language{{ language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
-                {% endfor %}
+            <li class="{{ loop.first ? 'active' }}"><a href="#{{ teb_name }}_language{{ language_id }}" 
+                data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" 
+                title="{{ language.name }}" /> {{ language.name }}</a></li>
+        {% endfor %}
     </ul>
     <div class="tab-content">
         {% for language_id, language in languages %}

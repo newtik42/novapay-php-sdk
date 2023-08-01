@@ -1,0 +1,113 @@
+{% import "tool/legacy/extra.twig" as extra %}
+{#
+
+i18n = {label, help, placeholder}
+input = {name, value, type, error}
+
+value = {
+            key_name:'name', 
+            data:_value_,
+            data_one:'', //використовується для шаблонів
+        }
+
+optionals = {required, autocomplete, labelBox}
+    labelBox = col|ver //col - цифра, ver bool
+
+#}
+
+{% macro InputTextLangs(languages, input, i18n, optionals) %}
+
+    {% if optionals.istable %}
+
+        {% set tebId = "now"|date("H:i") %}
+
+        <ul class="nav nav-tabs" role="tablist">
+            {% for language_id, language in languages %}
+                <li class="{{ loop.first ? 'active' }}">
+                    <a href="#{{ tebId }}_language{{ language_id }}" 
+                       data-toggle="tab">
+                        <img src="language/{{ language.code }}/{{ language.code }}.png" 
+                             title="{{ language.name }}" /> {{ language.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content">
+            {% for language_id, language in languages %}
+                <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' }}" id="{{ tebId }}_language{{ language_id }}">
+                    {{ _self.InputS("text", name|format(language_id), 
+                    (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id])), entry, help) }}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% for language_id,language in languages %}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
+                </span>
+                {{ _self.InputS("text", name|format(language_id), 
+                (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id])), entry, help) }}
+            </div>
+        {% endfor %}  
+    {% endif %}
+
+{% endmacro %}
+
+
+
+{% macro LabelInput(input, i18n, optionals) %}
+    <label class="col-sm-2 control-label">{{ label }} {{ help.button }}</label>
+    <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>
+        {{help.box }}
+        {% if autocomplete %}
+            <input type="hidden" name="{{ name }}" value="{{ value.id }}" class="form-control" />
+            <input type="text" {{ name }} value="{{ value.text }}" placeholder="{{ placeholder }}" class="form-control" />
+        {% else %}
+            <input type="text" name="{{ name }}" value="{{ value }}" placeholder="{{ placeholder }}" class="form-control" />
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{#
+checked="checked"
+#}
+{% macro inputS(input, i18n) %}
+    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" placeholder="{{ entry }}" class="form-control" />
+{% endmacro %}
+
+
+
+{% macro inputArea(input, i18n, optionals) %}
+    <textarea name="{{ input.name }}" rows="{{ optionals.row ?? "5" }}" placeholder="{{ i18n.placeholder }}" {{ optionals.id?'id="'~optionals.id~'"' }} 
+              class="form-control">{{ input.value }}</textarea>
+{% endmacro %}
+
+{#
+
+optionals {labelBox:col|ver} col - цифра, ver bool
+#}
+{% macro inputAreaLabel(input, i18n, optionals) %}
+    {% set col_def = optionals.labelBox.ver??(optionals.labelBox.col??2) %}
+    <label class="{{ optionals.labelBox.ver?'': "col-sm-" ~ optionals.labelBox.col  }} control-label">{{ i18n.label }} {{ help.button }}</label>
+    <div class="col-sm-{{ 12 - col_def }}">
+        {{help.box }}
+        {{ _self.inputArea(input, i18n, optionals) }}
+    </div>        
+{% endmacro %}
+
+
+
+{% macro input(input i18n, optionals) %}
+    <div class="input-group">
+        <input type="{{ input.type }}" name="{{ input.name }}" value="{{ input.value }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+    </div>
+{% endmacro %}
+
+{% macro inputA2(input i18n, optionals) %}
+    <div class="input-group">
+        <input type="{{ type }}" name="{{ name }}" 
+               value="{{ value }}" 
+               placeholder="{{ entry }}" class="form-control" />
+        <span class="input-group-addon">{{ text }}</span>
+    </div>
+{% endmacro %}
