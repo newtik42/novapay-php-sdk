@@ -50,9 +50,9 @@ optionals = {required, autocomplete, labelBox}
                 
                 {% if input.value.temp or values.key_name %}
                     {% set input = input|merge({'value': 
-                        input.value.temp?input.value.temp|format(language_id):(
+                        (input.value.temp?input.value.temp|format(language_id):(
                             input.value.key_name?input.value.data[language_id][input.value.key_name]:input.value[language_id]
-                    )} %}
+                    ))} %}
                 {% else %}
                 {% endif %}
                 
