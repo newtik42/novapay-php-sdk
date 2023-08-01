@@ -1,5 +1,5 @@
 {% import "extension/extension/tool/macros.twig" as forms %}
-{% import "tool/legacy/text.twig" as legText %}
+{% import "tool/legacy/components.twig" as legCom %}
 <input type="hidden" name="apply" value="0"/>
 <input type="hidden" name="setting[status]" value="{{ setting.status }}"/>
 <ul nttabs class="nav nav-tabs">
@@ -21,6 +21,10 @@
 
     <div class="tab-pane active" id="tab-general">
         
+        
+        {{ legCom.GroupLabelInput(
+                {'name':'setting[merchant_id]', 'value': setting.merchant_id}
+                {'label':text_merchant_id} {'required':true}) }}
         {{ forms.GroupInput('setting[merchant_id]', setting.merchant_id, text_merchant_id,'','', true) }}
                 
         <div class="form-group required">
