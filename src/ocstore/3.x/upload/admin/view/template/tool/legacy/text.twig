@@ -35,8 +35,17 @@ optionals = {required, autocomplete, labelBox}
             {% for language_id, language in languages %}
                 <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' }}" id="{{ tebId }}_language{{ language_id }}">
 
-                    {{ _self.InputS("text", name|format(language_id), 
-                    (), entry, help) }}
+                    {% set input = input|merge({'name': input.name|format(language_id)}) %}
+
+                    {% if input.value.temp or input.value.key_name %}
+                        {% set input = input|merge({'value': 
+                        (input.value.temp?input.value.temp|format(language_id):
+                            (input.value.key_name?input.value.data[language_id][input.value.key_name]:input.value[language_id])
+                        )}) %}
+                    {% else %}
+                    {% endif %}
+
+                    {{ _self.InputS(input, i18n, optionals) }}
                 </div>
             {% endfor %}
         </div>
@@ -47,7 +56,7 @@ optionals = {required, autocomplete, labelBox}
                     <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
                 </span>
                 {% set input = input|merge({'name': input.name|format(language_id)}) %}
-                
+
                 {% if input.value.temp or input.value.key_name %}
                     {% set input = input|merge({'value': 
                         (input.value.temp?input.value.temp|format(language_id):
@@ -55,7 +64,7 @@ optionals = {required, autocomplete, labelBox}
                         )}) %}
                 {% else %}
                 {% endif %}
-                
+
                 {{ _self.InputS(input, i18n, optionals) }}
             </div>
         {% endfor %}  
