@@ -20,7 +20,7 @@ $_['heading_title'] = $_['text_heading_title'] ;
 
 
 //type_extension == payment
-$_['text_newtik_wayforpay'] = '<img src="view/image/payment/" alt="WayForPay" title="WayForPay" style="border: 1px solid #EEEEEE;" />';
+$_['text_newtik_wayforpay'] = '<img src="view/image/payment/newtik_novapay.png" alt="" title="" style="border: 1px solid #EEEEEE;" />';
 
 //support
 $_['text_support_email'] = '';

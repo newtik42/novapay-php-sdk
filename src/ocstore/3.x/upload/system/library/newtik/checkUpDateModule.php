@@ -3,6 +3,8 @@
 namespace NewTik;
 
 class checkUpDateModule {
+    
+    public $classVersion = '3.0.0';
 
     private $version_v_major = 1;
     private $version_v_minor = 1;
@@ -79,7 +81,7 @@ class checkUpDateModule {
 
                 $break = false;
 
-                $pac_versions = $this->getVersion($pac['version']);
+                $pac_versions = $this->getVersion((isset($pac['version'])?$pac['version']:'1.0.0'));
 
                 if ($pac_versions <= $module_version) {
                     continue;
