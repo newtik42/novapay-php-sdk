@@ -3,6 +3,7 @@
 
 
 {% macro GroupLabelInput(input, i18n, optionals) %}
+    {% import "tool/legacy/text.twig" as legText %}
     {{ _self.Group( legText.LabelInput(input, i18n, optionals), optionals.required) }}
 {% endmacro %}
 
