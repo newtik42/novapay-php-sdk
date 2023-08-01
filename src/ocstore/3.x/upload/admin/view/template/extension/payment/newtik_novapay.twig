@@ -127,7 +127,18 @@
             </div>
         </div>
     </div>
-    <div class="tab-pane" id="tab-sandbox"></div>
+    <div class="tab-pane" id="tab-sandbox">
+
+        {{ forms.group_onoffswitch('setting[sandbox][status]', setting.sandbox.status, 
+            text_sandbox_status, text_help_sandbox_status, '', true) }}  
+            
+        {{ forms.group_onoffswitch('setting[sandbox][log]', setting.sandbox.log, 
+            text_sandbox_log, text_help_sandbox_log, '', true) }}      
+            
+        
+        
+
+    </div>
 </div>
 <style>
 </style>
