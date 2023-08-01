@@ -98,21 +98,21 @@
 
     <div class="tab-pane" id="tab-view">
         <div class="form-group">
-            <label class="col-sm-2 control-label">{{ text_translate_name }}</label>
+            <label class="col-sm-2 control-label">{{ text_view_title }}</label>
             <div class="col-sm-10">
                 {% for language in languages %}
                     <div class="input-group">
                         <span class="input-group-addon">
                             <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
                         </span>
-                        <input name="setting[translate][{{ language.language_id }}][name]" 
-                               value="{{ setting.translate[language.language_id].name }}" class="form-control">
+                        <input name="setting[view][{{ language.language_id }}][title]" 
+                               value="{{ setting.view[language.language_id].title }}" class="form-control">
                     </div>
                 {% endfor %}                
             </div>
         </div>
 
-        <div class="form-group">
+        {#<div class="form-group">
             <label class="col-sm-2 control-label">{{ text_translate_description }}</label>
             <div class="col-sm-10">
                 {% for language in languages %}
@@ -125,18 +125,27 @@
                     </div>
                 {% endfor %}                
             </div>
+        </div>#}
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"> {{ text_view_icon_status }} 
+                <img src="/image/payment/{{ code }}.png" height="32">
+            </label>
+            <div class="col-sm-2">
+                {{ forms.onoffswitch('setting[view][icon]', setting.view.icon) }}                
+            </div>
         </div>
     </div>
     <div class="tab-pane" id="tab-sandbox">
 
         {{ forms.group_onoffswitch('setting[sandbox][status]', setting.sandbox.status, 
             text_sandbox_status, text_help_sandbox_status, '', true) }}  
-            
+
         {{ forms.group_onoffswitch('setting[sandbox][log]', setting.sandbox.log, 
             text_sandbox_log, text_help_sandbox_log, '', true) }}      
-            
-        
-        
+
+
+
 
     </div>
 </div>
