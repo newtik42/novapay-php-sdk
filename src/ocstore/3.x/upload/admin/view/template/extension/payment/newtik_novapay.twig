@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-sm-3">
-            <div class="panel panel-info required">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <label class="control-label">{{ text_payment_tab_order_status_preprocessing }}</label>
                 </div>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-sm-3">
-            <div class="panel panel-info required">
+            <div class="panel panel-info complete required">
                 <div class="panel-heading">
                     <label class="control-label">{{ text_payment_tab_order_status_complete }}</label>
                 </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-sm-3">
-            <div class="panel panel-info required">
+            <div class="panel panel-info failed required">
                 <div class="panel-heading ">
                     <label class="control-label">{{ text_payment_tab_order_status_failed }}</label>
                 </div>
@@ -111,6 +111,12 @@
 <div class="tab-pane" id="tab-sandbox">
 
 </div>
-</div>  
+</div>
+<style>
+    #tab-order_status div.complete{
+        border-color: #d0ead0;
+        
+    }
+</style>
 
 
