@@ -19,19 +19,27 @@
 <div class="tab-content">
 
     <div class="tab-pane active" id="tab-general">
-        
-        {{ forms.group_onoffswitch('setting[send_info][customer]', setting.send_info.customer, 
-            text_send_info_customer, text_help_send_info_customer, '', true) }}
-            
-        {{ forms.group_onoffswitch('setting[send_info][product]', setting.send_info.product, 
-            text_send_info_product, text_help_send_info_product, '', true) }}
-        
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_send_info_customer_status }}</label>
+            <div class="col-sm-2">
+                {{ forms.onoffswitch('setting[send_info][customer]', setting.send_info.customer) }}
+            </div>
+
+            <label class="col-sm-2 control-label">{{ text_send_info_product_status }}</label>
+            <div class="col-sm-2">
+                {{ forms.onoffswitch('setting[send_info][product]', setting.send_info.product) }}
+            </div>
+        </div>
+
+
+
         {{ forms.GroupSelect(geo_zones, 'geo_zone_id', 'name', 'setting[geo_zone]',
                 setting.geo_zone, text_geo_zone, text_help_geo_zone) }}
 
         {{ forms.GroupInput('setting[sort_order]', setting.sort_order, 
         text_sort_order, '', '0-99999') }} 
-        
+
     </div>
 
     <div class="tab-pane" id="tab-order_status">
