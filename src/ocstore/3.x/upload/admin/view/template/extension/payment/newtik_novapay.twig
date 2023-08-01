@@ -19,7 +19,37 @@
 <div class="tab-content">
 
     <div class="tab-pane active" id="tab-general">
+        
+        {{ forms.GroupInput('setting[merchant_id]', setting.merchant_id, text_merchant_id,'','', true) }}
+        
+        {{ forms.GroupInput('setting[merchant_id]', setting.merchant_id, text_merchant_id,'','', true) }}
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_merchant_private_key }}</label>
+            <div class="col-sm-10">
+                <textarea rows="5" class="form-control" name="setting[private_key]">{{ setting.private_key }}</textarea>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_merchant_private_key }}</label>
+            <div class="col-sm-10">
+                <textarea rows="5" class="form-control" name="setting[public_key]">{{ setting.public_key }}</textarea>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_merchant_id }}</label>
+            <div class="col-sm-2">
+                {{ forms.onoffswitch('setting[send_info][customer]', setting.send_info.customer) }}
+            </div>
 
+            <label class="col-sm-2 control-label">{{ text_send_info_product_status }}</label>
+            <div class="col-sm-2">
+                {{ forms.onoffswitch('setting[send_info][product]', setting.send_info.product) }}
+            </div>
+        </div>
+        
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_send_info_customer_status }}</label>
             <div class="col-sm-2">
@@ -145,7 +175,7 @@
             text_sandbox_log, text_help_sandbox_log, '', true) }}      
 
 
-
+        
 
     </div>
 </div>
