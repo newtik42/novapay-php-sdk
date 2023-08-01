@@ -73,7 +73,7 @@ optionals = {required, autocomplete, labelBox}
 {% endmacro %}
 
 {% macro inputS(input, i18n, optionals) %}
-    (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id]))
+    
     {% if input.type == 'textarea' %}
         {% if values.data %}
             <input type="{{ input.type }}" name="{{ input.name }}" 
