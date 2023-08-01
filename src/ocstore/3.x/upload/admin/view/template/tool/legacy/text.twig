@@ -34,6 +34,7 @@ optionals = {required, autocomplete, labelBox}
         <div class="tab-content">
             {% for language_id, language in languages %}
                 <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' }}" id="{{ tebId }}_language{{ language_id }}">
+                    
                     {{ _self.InputS("text", name|format(language_id), 
                     (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id])), entry, help) }}
                 </div>
@@ -53,8 +54,6 @@ optionals = {required, autocomplete, labelBox}
 
 {% endmacro %}
 
-
-
 {% macro LabelInput(input, i18n, optionals) %}
     <label class="col-sm-2 control-label">{{ label }} {{ help.button }}</label>
     <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>
@@ -68,46 +67,13 @@ optionals = {required, autocomplete, labelBox}
     </div>
 {% endmacro %}
 
-{#
-checked="checked"
-#}
-{% macro inputS(input, i18n) %}
-    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" placeholder="{{ entry }}" class="form-control" />
+{% macro inputS(input, i18n, optionals) %}
+    <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
 {% endmacro %}
 
 
 
-{% macro inputArea(input, i18n, optionals) %}
+{% macro inputSArea(input, i18n, optionals) %}
     <textarea name="{{ input.name }}" rows="{{ optionals.row ?? "5" }}" placeholder="{{ i18n.placeholder }}" {{ optionals.id?'id="'~optionals.id~'"' }} 
               class="form-control">{{ input.value }}</textarea>
-{% endmacro %}
-
-{#
-
-optionals {labelBox:col|ver} col - цифра, ver bool
-#}
-{% macro inputAreaLabel(input, i18n, optionals) %}
-    {% set col_def = optionals.labelBox.ver??(optionals.labelBox.col??2) %}
-    <label class="{{ optionals.labelBox.ver?'': "col-sm-" ~ optionals.labelBox.col  }} control-label">{{ i18n.label }} {{ help.button }}</label>
-    <div class="col-sm-{{ 12 - col_def }}">
-        {{help.box }}
-        {{ _self.inputArea(input, i18n, optionals) }}
-    </div>        
-{% endmacro %}
-
-
-
-{% macro input(input i18n, optionals) %}
-    <div class="input-group">
-        <input type="{{ input.type }}" name="{{ input.name }}" value="{{ input.value }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
-    </div>
-{% endmacro %}
-
-{% macro inputA2(input i18n, optionals) %}
-    <div class="input-group">
-        <input type="{{ type }}" name="{{ name }}" 
-               value="{{ value }}" 
-               placeholder="{{ entry }}" class="form-control" />
-        <span class="input-group-addon">{{ text }}</span>
-    </div>
 {% endmacro %}

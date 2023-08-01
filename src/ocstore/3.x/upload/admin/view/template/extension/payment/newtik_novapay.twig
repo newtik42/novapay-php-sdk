@@ -1,4 +1,5 @@
 {% import "extension/extension/tool/macros.twig" as forms %}
+{% import "tool/text.twig" as legText %}
 <input type="hidden" name="apply" value="0"/>
 <input type="hidden" name="setting[status]" value="{{ setting.status }}"/>
 <ul nttabs class="nav nav-tabs">
@@ -21,7 +22,7 @@
     <div class="tab-pane active" id="tab-general">
         
         {{ forms.GroupInput('setting[merchant_id]', setting.merchant_id, text_merchant_id,'','', true) }}
-        
+                
         <div class="form-group required">
             <label class="col-sm-2 control-label">{{ text_merchant_private_key }}</label>
             <div class="col-sm-10">
@@ -111,20 +112,14 @@
     </div>
 
     <div class="tab-pane" id="tab-view">
-        
-        
+        {{  }}
+        InputTextLangs(languages, input, i18n, optionals)
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_payment_tab_view_title }}</label>
             <div class="col-sm-10">
-                {% for language in languages %}
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
-                        </span>
-                        <input name="setting[view][{{ language.language_id }}][title]" 
-                               value="{{ setting.view[language.language_id].title }}" class="form-control">
-                    </div>
-                {% endfor %}                
+                {{ legText.InputTextLangs(languages, 
+                        {'name':'setting[view][title][%s]','value':setting.view.title}, 
+                        {}, {}) }}        
             </div>
         </div>
 
