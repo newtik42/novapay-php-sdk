@@ -46,7 +46,7 @@ optionals = {required, autocomplete, labelBox}
                 <span class="input-group-addon">
                     <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
                 </span>
-                {% set input.name = input.name|format(language_id %}
+                {% set input.name = input.name|format(language_id) %}
                 {{ _self.InputS(input, i18n, optionals) }}
             </div>
         {% endfor %}  
