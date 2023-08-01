@@ -3,21 +3,98 @@
 <input type="hidden" name="setting[status]" value="{{ setting.status }}"/>
 <ul nttabs class="nav nav-tabs">
     <li nttabs class="active"><a href="#tab-general" data-toggle="tab">
-        <i class="fa fa-cogs text-primary"></i> {{ text_tab_general }}</a>
+            <i class="fa fa-cogs text-primary"></i> {{ text_tab_general }}</a>
     </li>
     <li nttabs class=""><a href="#tab-order_status" data-toggle="tab">
-        <i class="fa fa-link text-primary"></i> {{ text_tab_order_status }}</a>
+            <i class="fa fa-link text-primary"></i> {{ text_tab_order_status }}</a>
     </li>
     <li nttabs class=""><a href="#tab-view" data-toggle="tab">
-        <i class="fa fa-globe text-primary"></i> {{ text_tab_view }}</a>
+            <i class="fa fa-globe text-primary"></i> {{ text_tab_view }}</a>
     </li>
     <li nttabs class=""><a href="#tab-sandbox" data-toggle="tab">
-        <i class="fa fa-bug text-warning"></i> {{ text_tab_sandbox }}</a>
+            <i class="fa fa-bug text-warning"></i> {{ text_tab_sandbox }}</a>
     </li>
 </ul>
 
 <div class="tab-content">
     <div class="tab-pane active" id="tab-general">
+
+
+
+    </div>
+
+    <div class="tab-pane" id="tab-order_status">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_order_status_init }}</label>
+            <div class="col-sm-10">
+                <select name="payment_rozetkapay_order_status_init" class="form-control">
+                    <option value="0" {{ payment_rozetkapay_order_status_init == "0" ? 'selected="selected"':'' }} >---</option>
+                    {% for order_status in order_statuses %}
+                        <option value="{{ order_status.order_status_id }}"
+                                {% if  payment_rozetkapay_order_status_init == order_status.order_status_id %} selected="selected"{% endif %}
+                                >{{ order_status.name }}</option>                                        
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ text_order_status_pending }}</label>
+            <div class="col-sm-10">
+                <select name="payment_rozetkapay_order_status_pending" class="form-control">
+                    <option value="0" {{ payment_rozetkapay_order_status_pending == "0" ? 'selected="selected"':'' }}
+                            >---</option>
+                    {% for order_status in order_statuses %}
+                        <option value="{{ order_status.order_status_id }}"
+                                {% if  payment_rozetkapay_order_status_pending == order_status.order_status_id %} selected="selected"{% endif %}
+                                >{{ order_status.name }}</option>                                        
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group required">
+            <label class="col-sm-2 control-label">{{ text_order_status_success }}</label>
+            <div class="col-sm-10">
+                <select name="payment_rozetkapay_order_status_success" class="form-control">
+                    {% for order_status in order_statuses %}
+                        <option value="{{ order_status.order_status_id }}"
+                                {% if  payment_rozetkapay_order_status_success == order_status.order_status_id %}selected="selected"{% endif %}
+                                >{{ order_status.name }}</option>                                        
+                    {% endfor %}
+                </select>
+                {% if error_order_status_success %} 
+                    <div class="text-danger">{{ error_order_status_success }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label class="col-sm-2 control-label">{{ text_order_status_failure }}</label>
+            <div class="col-sm-10">
+                <select name="payment_rozetkapay_order_status_failure" class="form-control">
+                    {% for order_status in order_statuses %}
+                        <option value="{{ order_status.order_status_id }}"
+                                {% if  payment_rozetkapay_order_status_failure == order_status.order_status_id %} selected="selected"{% endif %}
+                                >{{ order_status.name }}</option>                                        
+                    {% endfor %}
+                </select>
+                {% if error_order_status_failure %} 
+                    <div class="text-danger">{{ error_order_status_failure }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-pane" id="tab-view">
+
+    </div>
+
+    <div class="tab-pane" id="tab-sandbox">
 
     </div>
 </div>  
