@@ -24,9 +24,9 @@ optionals = {required, autocomplete, labelBox}
         {{ optionals.help.box }}
         {% if optionals.autocomplete %}
             <input type="hidden" name="{{ input.name }}" value="{{ input.value.id }}" class="form-control" />
-            <input type="text" {{ input.name }} value="{{ input.value.text }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+            {{ _self.InputS(input, i18n, optionals) }}
         {% else %}
-            <input type="text" name="{{ input.name }}" value="{{ input.value }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+            {{ _self.InputS(input, i18n, optionals) }}
         {% endif %}
     </div>
 {% endmacro %}
