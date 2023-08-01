@@ -21,13 +21,13 @@
     <div class="tab-pane active" id="tab-general"></div>
 
     <div class="tab-pane" id="tab-order_status">
-
+        
         <div class=""> 
             {{ forms.Group_onoffswitch('setting[order_status][system]', setting.order_status.system, 
             text_payment_tab_order_status_system, text_help_payment_tab_order_status_system) }}
         </div>
         
-
+        <div class="row">
         <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        
+        </div>
     </div>
 
     <div class="tab-pane" id="tab-view">
