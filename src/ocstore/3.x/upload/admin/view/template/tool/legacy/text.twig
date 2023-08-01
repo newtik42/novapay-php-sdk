@@ -69,7 +69,6 @@ optionals = {required, autocomplete, labelBox}
 
 {% macro inputS(input, i18n, optionals) %}
     {% if input.type == 'textarea' %}
-        name|format(language_id), 
         {% if values.temp %}
             <input type="{{ input.type }}" name="{{ input.name }}" 
                    value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
@@ -77,7 +76,12 @@ optionals = {required, autocomplete, labelBox}
             <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
         {% endif %}
     {% else %}
-
+        {% if values.temp %}
+            <input type="{{ input.type }}" name="{{ input.name }}" 
+                   value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+        {% else %}
+            <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+        {% endif %}
     {% endif %}
 {% endmacro %}
 
