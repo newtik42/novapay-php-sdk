@@ -34,7 +34,7 @@ optionals = {required, autocomplete, labelBox}
         <div class="tab-content">
             {% for language_id, language in languages %}
                 <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' }}" id="{{ tebId }}_language{{ language_id }}">
-                    
+
                     {{ _self.InputS("text", name|format(language_id), 
                     (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id])), entry, help) }}
                 </div>
@@ -46,8 +46,8 @@ optionals = {required, autocomplete, labelBox}
                 <span class="input-group-addon">
                     <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
                 </span>
-                {{ _self.InputS("text", name|format(language_id), 
-                (values.temp?values.temp|format(language_id):(values.key_name?values.data[language_id][values.key_name]:values[language_id])), entry, help) }}
+                {% set input.name = input.name|format(language_id %}
+                {{ _self.InputS(input, i18n, optionals) }}
             </div>
         {% endfor %}  
     {% endif %}
@@ -68,7 +68,17 @@ optionals = {required, autocomplete, labelBox}
 {% endmacro %}
 
 {% macro inputS(input, i18n, optionals) %}
-    <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+    {% if input.type == 'textarea' %}
+        name|format(language_id), 
+        {% if values.temp %}
+            <input type="{{ input.type }}" name="{{ input.name }}" 
+                   value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+        {% else %}
+            <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
+        {% endif %}
+    {% else %}
+
+    {% endif %}
 {% endmacro %}
 
 
