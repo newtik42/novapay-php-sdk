@@ -18,7 +18,15 @@
 
 <div class="tab-content">
 
-    <div class="tab-pane active" id="tab-general"></div>
+    <div class="tab-pane active" id="tab-general">
+        
+        {{ forms.GroupSelect(geo_zones, 'geo_zone_id', 'name', 'setting[geo_zone]',
+                setting.geo_zone, text_geo_zone, text_help_geo_zone) }}
+
+        {{ forms.GroupInput('setting[sort_order]', setting.sort_order, 
+        text_sort_order, '', '0-99999') }} 
+        
+    </div>
 
     <div class="tab-pane" id="tab-order_status">
 
