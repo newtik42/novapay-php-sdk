@@ -39,7 +39,38 @@
             </div>
         </div>
 
-        
+        <div class="col-sm-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <label class="control-label">{{ text_payment_tab_order_status_preprocessing }}</label>
+                </div>
+                <div class="panel-body">
+                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][processing]', setting.order_status.processing) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="panel panel-info complete required">
+                <div class="panel-heading">
+                    <label class="control-label">{{ text_payment_tab_order_status_complete }}</label>
+                </div>
+                <div class="panel-body">
+                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][complete]', setting.order_status.complete, '', true) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="panel panel-info failed required">
+                <div class="panel-heading ">
+                    <label class="control-label">{{ text_payment_tab_order_status_failed }}</label>
+                </div>
+                <div class="panel-body">
+                    {{ forms.Select(order_statuses, 'order_status_id', 'name', 'setting[order_status][failed]', setting.order_status.failed, '', true) }}
+                </div>
+            </div>
+        </div>
         
     </div>
 
