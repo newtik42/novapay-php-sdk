@@ -20,6 +20,12 @@
 
     <div class="tab-pane active" id="tab-general">
         
+        {{ forms.group_onoffswitch('setting[send_info][customer]', setting.send_info.customer, 
+            text_send_info_customer, text_help_send_info_customer, '', true) }}
+            
+        {{ forms.group_onoffswitch('setting[send_info][product]', setting.send_info.product, 
+            text_send_info_product, text_help_send_info_product, '', true) }}
+        
         {{ forms.GroupSelect(geo_zones, 'geo_zone_id', 'name', 'setting[geo_zone]',
                 setting.geo_zone, text_geo_zone, text_help_geo_zone) }}
 
