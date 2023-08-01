@@ -28,6 +28,17 @@
         </div>
         
 
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label class="control-label">{{ text_payment_tab_order_status_preprocessing }}</label>
+                </div>
+                <div class="panel-body">
+                    {{ forms.Select(order_statuses_, 'order_status_id', 'name', 'setting[order_status][preprocessing]', setting.order_status.preprocessing) }}
+                </div>
+            </div>
+        </div>
+
         
         
     </div>
@@ -66,10 +77,6 @@
     <div class="tab-pane" id="tab-sandbox"></div>
 </div>
 <style>
-    #tab-order_status div.complete{
-        border-color: #d0ead0;
-
-    }
 </style>
 
 
