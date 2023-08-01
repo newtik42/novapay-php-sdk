@@ -1,8 +1,6 @@
 {% import "tool/legacy/select.twig" as legSelect %}
 {% import "tool/legacy/text.twig" as legText %}
 
-{{ forms.GroupInput('setting[merchant_id]', setting.merchant_id, text_merchant_id,'','', true) }}
-
 
 {% macro GroupLabelInput(input, i18n, optionals) %}
     {{ _self.Group( legText.LabelInput(input, i18n, optionals), optionals.required) }}
