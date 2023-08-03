@@ -127,27 +127,53 @@
 
         {{ forms.group_onoffswitch('setting[sandbox][log]', setting.sandbox.log, 
             text_tab_sandbox_log_status ) }}
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{$text_test_cards}</label>
+            <div class="col-sm-10">
+                <div class="well well-sm">
+                    card=4242424242424242  exp=any cvv=any  3ds=Yes result=success<br>
+                    card=5454545454545454  exp=any cvv=any  3ds=Yes result=success<br>
+                    card=4111111111111111  exp=any cvv=any  3ds=No result=success<br>
+                    card=4200000000000000  exp=any cvv=any  3ds=Yes result=rejected<br>
+                    card=5105105105105100  exp=any cvv=any  3ds=Yes result=rejected<br>
+                    card=4444333322221111  exp=any cvv=any  3ds=No result=rejected<br>
+                    card=5100000020002000  exp=any cvv=any  3ds=No result=rejected<br>
+                    card=4000000000000044  exp=any cvv=any  3ds=No result=insufficient-funds<br>
+                </div>
+            </div>
+        </div>
 
+
+        <div id="log_warning" class="form-group">
+            <div class="warning col-sm-12">
+                <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> 
+                    <div id="log_warning_text"></div>
+                </div>
+            </div>
+        </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> {{ text_tab_sandbox_log_title }}</h3>
+                <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i>{{ text_tab_sandbox_log_title }}</h3>
                 <div class="pull-right">
                     <a id="log_refresh" onclick="nt_log_refresh()" data-toggle="tooltip" class="btn btn-warning">
                         <i class="fa fa-refresh"></i>
                     </a>
-                    <a href="{{ href_log_download }}" data-toggle="tooltip" class="btn btn-primary">
+                    <a href="{$urlLogDownload}" target="_blank" data-toggle="tooltip" class="btn btn-primary">
                         <i class="fa fa-download"></i>
                     </a>
-                    <a onclick="confirm('{{ ext_confirm }}') ? location = '{{ href_log_clear }}' : false;" data-toggle="tooltip" class="btn btn-danger">
+                    <a href="{$urlLogClear}" data-toggle="tooltip" class="btn btn-danger">
                         <i class="fa fa-eraser"></i>
                     </a>
                 </div>
             </div>
             <div class="panel-body">
-                <textarea wrap="off" rows="15" readonly class="form-control">{{ log }}</textarea>
+                <div class="col-lg-12">
+                    <textarea readonly id="log" rows="10" class="textarea-autosize"></textarea>
+                </div>
             </div>
         </div>
+
 
     </div>
 </div>
