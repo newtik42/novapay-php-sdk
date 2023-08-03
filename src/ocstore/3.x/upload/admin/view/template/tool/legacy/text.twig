@@ -20,14 +20,9 @@ optionals = {required, autocomplete, labelBox}
 
 {% macro LabelInput(input, i18n, optionals) %}
     <label class="col-sm-2 control-label">{{ i18n.label }} {{ optionals.help.button }}</label>
-    <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>
+    <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>        
         {{ optionals.help.box }}
-        {% if optionals.autocomplete %}
-            <input type="hidden" name="{{ input.name }}" value="{{ input.value.id }}" class="form-control" />
-            {{ _self.InputS(input, i18n, optionals) }}
-        {% else %}
-            {{ _self.InputS(input, i18n, optionals) }}
-        {% endif %}
+        {{ _self.InputS(input, i18n, optionals) }}
     </div>
 {% endmacro %}
 

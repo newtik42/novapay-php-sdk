@@ -29,13 +29,11 @@
         
         {{ legCom.GroupLabelInput(
                 {'name':'setting[public_key]', 'value': setting.public_key, 'type': 'textarea'},
-                {'label':text_merchant_public_key}, {'required':true}
-        ) }}      
+                {'label':text_merchant_public_key}, {'required':true}) }}      
         
         {{ legCom.GroupLabelInput(
                 {'name':'setting[private_key]', 'value': setting.private_key, 'type': 'textarea'},
-                {'label':text_merchant_private_key}, {'required':true}
-        ) }}
+                {'label':text_merchant_private_key}, {'required':true}) }}
         
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_send_info_customer_status }}</label>
