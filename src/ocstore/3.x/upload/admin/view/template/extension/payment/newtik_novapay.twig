@@ -111,35 +111,14 @@
 
     <div class="tab-pane" id="tab-view">
         
-        {{ forms.Grouponoffswitch('setting[send_info][product]', setting.send_info.product) }}
+        {{ forms.Grouponoffswitch('setting[view][title_default]', setting.view.title_default) }}
         
         {{ legCom.GroupLabelInput(
                 {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}, 'langs':languages}, 
                 {'label':text_payment_tab_view_title}, {}) }}
                 
-        {#<div class="form-group">
-            <label class="col-sm-2 control-label">{{ text_translate_description }}</label>
-            <div class="col-sm-10">
-                {% for language in languages %}
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
-                        </span>
-                        <input name="setting[translate][{{ language.language_id }}][description]" 
-                               value="{{ setting.translate[language.language_id].name }}" class="form-control">
-                    </div>
-                {% endfor %}                
-            </div>
-        </div>#}
+        {{ forms.Grouponoffswitch('setting[view][icon]', setting.view.icon) }}
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label"> {{ text_view_icon_status }} 
-                <img src="/image/payment/{{ code }}.png" height="32">
-            </label>
-            <div class="col-sm-2">
-                {{ forms.onoffswitch('setting[view][icon]', setting.view.icon) }}                
-            </div>
-        </div>
     </div>
     <div class="tab-pane" id="tab-sandbox">
 
