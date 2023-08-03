@@ -86,12 +86,8 @@ optionals = {required, autocomplete, labelBox}
 {% macro inputS(input, i18n, optionals) %}
     
     {% if input.type == 'textarea' %}
-        {% if values.data %}
-            <input type="{{ input.type }}" name="{{ input.name }}" 
-                   value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
-        {% else %}
-            <input type="{{ input.type }}" name="{{ input.name }}" value="{{ vinput.alue }}" placeholder="{{ i18n.placeholder }}" class="form-control" />
-        {% endif %}
+        <textarea name="{{ input.name }}" rows="{{ optionals.row ?? "5" }}" placeholder="{{ i18n.placeholder }}" {{ optionals.id?'id="'~optionals.id~'"' }} 
+    class="form-control">{{ input.value }}</textarea>
     {% else %}
         {% if values.data %}
             <input type="{{ input.type }}" name="{{ input.name }}" 
