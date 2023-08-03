@@ -166,7 +166,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i>{{ text_tab_sandbox_log_title }}</h3>
                 <div class="pull-right">
-                    <a id="log_refresh" onclick="nt_log_refresh()" data-toggle="tooltip" class="btn btn-warning">
+                    <a id="log_refresh" onclick="nt_log_reload(this, 'error')" data-toggle="tooltip" class="btn btn-warning">
                         <i class="fa fa-refresh"></i>
                     </a>
                     <a onclick="nt_log_downloader(this, 'error')" target="_blank" data-toggle="tooltip" class="btn btn-primary">
@@ -185,39 +185,3 @@
 
     </div>
 </div>
-<style>
-</style>
-
-<script>
-    function nt_log_refresh() {
-        let but = $('#log_refresh')
-        $('#log_warning').hide()
-        $.ajax({
-            url: '{$urlLogRefresh}',
-            dataType: 'json',
-            beforeSend: function () {
-                but.hide()
-            },
-            complete: function () {
-                but.show()
-            },
-            success: function (json) {
-                but.show()
-                if (json.ok) {
-
-                } else {
-                    $('#log_warning_text').text(json.warning)
-                    $('#log_warning').show()
-                }
-                $('#log').text(json.log)
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr);
-            }
-        });
-        return false;
-    }
-    nt_log_refresh();
-</script>
-
-
