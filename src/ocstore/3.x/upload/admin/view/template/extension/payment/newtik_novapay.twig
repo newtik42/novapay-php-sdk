@@ -111,13 +111,13 @@
 
     <div class="tab-pane" id="tab-view">
         
-        {{ forms.Grouponoffswitch('setting[view][title_default]', setting.view.title_default) }}
+        {{ forms.Grouponoffswitch('setting[view][title_default]', setting.view.title_default, text_payment_tab_view_title_default) }}
         
         {{ legCom.GroupLabelInput(
                 {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}, 'langs':languages}, 
                 {'label':text_payment_tab_view_title}, {}) }}
                 
-        {{ forms.Grouponoffswitch('setting[view][icon]', setting.view.icon) }}
+        {{ forms.Grouponoffswitch('setting[view][icon]', setting.view.icon, text_payment_tab_view_icon) }}
 
     </div>
     <div class="tab-pane" id="tab-sandbox">
