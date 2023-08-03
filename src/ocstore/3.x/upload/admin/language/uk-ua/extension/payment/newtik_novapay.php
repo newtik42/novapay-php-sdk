@@ -83,6 +83,7 @@ $_['text_payment_tab_view_icon']      = 'Відображати лого';
 #Tab SandBox
 $_['text_tab_sandbox']      = 'Тест';
 
+$_['text_tab_sandbox_status']      = 'Тестовий режим';
 $_['text_tab_sandbox']      = 'Тестовий режим';
 $_['text_sandbox_cards'] = 'Тестові карти';
 $_['text_sandbox_log_title'] = ' Журнал';
