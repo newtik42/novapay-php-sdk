@@ -60,21 +60,20 @@ $_['text_send_info_product_status']      = 'Товар';
 
 
 #Tab Order status
-$_['text_payment_tab_order_status_system']      = 'Загальні';
-$_['text_help_payment_tab_order_status_system']      = 'Загальні';
-
+$_['text_payment_tab_order_status']      = 'Статуси замовлень';
+$_['text_payment_tab_order_status_system']      = '';
+$_['text_help_payment_tab_order_status_system']      = '';
 $_['text_payment_tab_order_status_init']      = 'Сворення';
 $_['text_payment_tab_order_status_pending']      = 'Очікування';
 $_['text_payment_tab_order_status_success']      = 'Успіх';
 $_['text_payment_tab_order_status_failed']      = 'Помилка';
 
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
-$_['text_payment_tab_view_title']      = 'Загальні';
+
+#Tab View 
+$_['text_payment_tab_view']      = 'Вгляд';
+$_['text_payment_tab_view_title_default']      = 'Використовувати по-замовчуванням назву';
+$_['text_payment_tab_view_title']      = 'Назва';
+$_['text_payment_tab_view_icon']      = 'Відображати лого';
 
 
 
