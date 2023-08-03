@@ -84,10 +84,9 @@ $_['text_payment_tab_view_icon']      = 'Відображати лого';
 $_['text_tab_sandbox']      = 'Тест';
 
 $_['text_tab_sandbox_status']      = 'Тестовий режим';
-$_['text_tab_sandbox']      = 'Тестовий режим';
-$_['text_sandbox_cards'] = 'Тестові карти';
-$_['text_sandbox_log_title'] = ' Журнал';
-$_['entry_log_status'] = 'Журнал';
-$_['text_help_test'] = 'Тестовий режим буду працювати тільки для тих користувачі які попередньо зайшли в адмінку';
+$_['text_tab_sandbox_cards'] = 'Тестові карти';
+$_['text_tab_sandbox_log_title'] = ' Журнал';
+$_['text_tab_sandbox_log_status'] = 'Журнал';
+$_['text_tab_sandbox_help_test'] = 'Тестовий режим буду працювати тільки для тих користувачі які попередньо зайшли в адмінку';
 
 

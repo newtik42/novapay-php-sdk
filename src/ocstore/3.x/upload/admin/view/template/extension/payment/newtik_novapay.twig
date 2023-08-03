@@ -126,7 +126,7 @@
             text_sandbox_status) }}  
 
         {{ forms.group_onoffswitch('setting[sandbox][log]', setting.sandbox.log, 
-            text_sandbox_log) }}
+            text_sandbox_log_status ) }}
 
 
         <div class="panel panel-default">
@@ -153,5 +153,37 @@
 </div>
 <style>
 </style>
+
+<script>
+    function nt_log_refresh() {
+        let but = $('#log_refresh')
+        $('#log_warning').hide()
+        $.ajax({
+            url: '{$urlLogRefresh}',
+            dataType: 'json',
+            beforeSend: function () {
+                but.hide()
+            },
+            complete: function () {
+                but.show()
+            },
+            success: function (json) {
+                but.show()
+                if (json.ok) {
+
+                } else {
+                    $('#log_warning_text').text(json.warning)
+                    $('#log_warning').show()
+                }
+                $('#log').text(json.log)
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr);
+            }
+        });
+        return false;
+    }
+    nt_log_refresh();
+</script>
 
 
