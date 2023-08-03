@@ -58,6 +58,8 @@ $_['text_merchant_public_key']      = 'публічний ключ';
 $_['text_send_info_customer_status']      = 'Покупець';
 $_['text_send_info_product_status']      = 'Товар';
 
+
+#Tab Order status
 $_['text_payment_tab_order_status_system']      = 'Загальні';
 $_['text_help_payment_tab_order_status_system']      = 'Загальні';
 
