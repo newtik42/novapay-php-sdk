@@ -23,9 +23,9 @@ optionals = {required, autocomplete, labelBox}
     <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>        
         {{ optionals.help.box }}
         {% if input.langs %}
-            {{ _self.InputS(input, i18n, optionals) }}
-        {% else %}
             {{ _self.InputTextLangs(input, i18n, optionals) }}
+        {% else %}
+            {{ _self.InputS(input, i18n, optionals) }}
         {% endif %}
     </div>
 {% endmacro %}
