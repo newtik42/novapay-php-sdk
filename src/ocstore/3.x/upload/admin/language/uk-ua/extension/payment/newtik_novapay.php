@@ -53,18 +53,18 @@ $_['text_tab_general']      = 'Загальні';
 $_['text_error_permission'] = 'Попередження: у вас немає дозволу на зміни '.$_['text_heading_form_title'].' module!';
 
 $_['text_merchant_id']      = 'Merchant id';
-$_['text_merchant_private_key']      = 'Загальні';
-$_['text_merchant_private_key']      = 'Загальні';
-$_['text_send_info_customer_status']      = 'Загальні';
-$_['text_send_info_product_status']      = 'Загальні';
+$_['text_merchant_private_key']      = 'Приватний ключ';
+$_['text_merchant_public_key']      = 'публічний ключ';
+$_['text_send_info_customer_status']      = 'Покупець';
+$_['text_send_info_product_status']      = 'Товар';
 
 $_['text_payment_tab_order_status_system']      = 'Загальні';
 $_['text_help_payment_tab_order_status_system']      = 'Загальні';
 
-$_['text_payment_tab_order_status_init']      = 'Загальні';
-$_['text_payment_tab_order_status_pending']      = 'Загальні';
-$_['text_payment_tab_order_status_success']      = 'Загальні';
-$_['text_payment_tab_order_status_failed']      = 'Загальні';
+$_['text_payment_tab_order_status_init']      = 'Сворення';
+$_['text_payment_tab_order_status_pending']      = 'Очікування';
+$_['text_payment_tab_order_status_success']      = 'Успіх';
+$_['text_payment_tab_order_status_failed']      = 'Помилка';
 
 $_['text_payment_tab_view_title']      = 'Загальні';
 $_['text_payment_tab_view_title']      = 'Загальні';
