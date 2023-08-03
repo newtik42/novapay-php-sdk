@@ -111,8 +111,8 @@
 
     <div class="tab-pane" id="tab-view">
         
-        {{ legCom.GroupLabelInput(languages, 
-                {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}}, 
+        {{ legCom.GroupLabelInput(
+                {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}, 'langs':languages}, 
                 {'label':text_payment_tab_view_title}, {}) }}
 
         {#<div class="form-group">
