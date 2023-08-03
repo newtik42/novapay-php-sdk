@@ -2,7 +2,7 @@
 {#
 
 i18n = {label, help, placeholder}
-input = {name, value, type, error}
+input = {name, value, type, error, langs}
 
 value = {
             id : // для autocomplete
@@ -22,18 +22,22 @@ optionals = {required, autocomplete, labelBox}
     <label class="col-sm-2 control-label">{{ i18n.label }} {{ optionals.help.button }}</label>
     <div class="col-sm-10" {{ optionals.autocomplete?'autocomplete':'' }}>        
         {{ optionals.help.box }}
-        {{ _self.InputS(input, i18n, optionals) }}
+        {% if input.langs %}
+            {{ _self.InputS(input, i18n, optionals) }}
+        {% else %}
+            {{ _self.InputTextLangs(input, i18n, optionals) }}
+        {% endif %}
     </div>
 {% endmacro %}
 
-{% macro InputTextLangs(languages, input, i18n, optionals) %}
+{% macro InputTextLangs(input, i18n, optionals) %}
 
     {% if optionals.istable %}
 
         {% set tebId = "now"|date("H:i") %}
 
         <ul class="nav nav-tabs" role="tablist">
-            {% for language_id, language in languages %}
+            {% for language_id, language in input.langs %}
                 <li class="{{ loop.first ? 'active' }}">
                     <a href="#{{ tebId }}_language{{ language_id }}" 
                        data-toggle="tab">
@@ -43,7 +47,7 @@ optionals = {required, autocomplete, labelBox}
             {% endfor %}
         </ul>
         <div class="tab-content">
-            {% for language_id, language in languages %}
+            {% for language_id, language in input.langs %}
                 <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' }}" id="{{ tebId }}_language{{ language_id }}">
 
                     {% set input = input|merge({'name': input.name|format(language_id)}) %}
@@ -61,7 +65,7 @@ optionals = {required, autocomplete, labelBox}
             {% endfor %}
         </div>
     {% else %}
-        {% for language_id,language in languages %}
+        {% for language_id,language in input.langs %}
             <div class="input-group">
                 <span class="input-group-addon">
                     <img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}">
