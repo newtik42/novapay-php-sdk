@@ -6,7 +6,7 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
     protected $code = 'newtik_novapay';
     protected $path = 'extension/payment/newtik_novapay';
     protected $type = 'payment';
-    protected $version = '1.1.78';
+    protected $version = '1.1.79';
     protected $setting;
     
     protected $mod_templeate_view_old = true;
