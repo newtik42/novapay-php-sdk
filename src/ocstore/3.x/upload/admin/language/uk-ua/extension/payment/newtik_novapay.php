@@ -61,6 +61,7 @@ $_['text_send_info_product_status']      = 'Товар';
 
 #Tab Order status
 $_['text_payment_tab_order_status']      = 'Статуси замовлень';
+
 $_['text_payment_tab_order_status_system']      = '';
 $_['text_help_payment_tab_order_status_system']      = '';
 $_['text_payment_tab_order_status_init']      = 'Сворення';
@@ -71,10 +72,21 @@ $_['text_payment_tab_order_status_failed']      = 'Помилка';
 
 #Tab View 
 $_['text_payment_tab_view']      = 'Вгляд';
+
 $_['text_payment_tab_view_title_default']      = 'Використовувати по-замовчуванням назву';
 $_['text_payment_tab_view_title']      = 'Назва';
 $_['text_payment_tab_view_icon']      = 'Відображати лого';
 
 
+
+
+#Tab SandBox
+$_['text_tab_sandbox']      = 'Тест';
+
+$_['text_tab_sandbox']      = 'Тестовий режим';
+$_['text_sandbox_cards'] = 'Тестові карти';
+$_['text_sandbox_log_title'] = ' Журнал';
+$_['entry_log_status'] = 'Журнал';
+$_['text_help_test'] = 'Тестовий режим буду працювати тільки для тих користувачі які попередньо зайшли в адмінку';
 
 

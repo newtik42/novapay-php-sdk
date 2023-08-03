@@ -20,21 +20,21 @@
 <div class="tab-content">
 
     <div class="tab-pane active" id="tab-general">
-        
-        
+
+
         {{ legCom.GroupLabelInput(
                 {'name':'setting[merchant_id]', 'value': setting.merchant_id},
                 {'label':text_merchant_id}, {'required':true}) }}
-        
-        
+
+
         {{ legCom.GroupLabelInput(
                 {'name':'setting[public_key]', 'value': setting.public_key, 'type': 'textarea'},
                 {'label':text_merchant_public_key}, {'required':true}) }}      
-        
+
         {{ legCom.GroupLabelInput(
                 {'name':'setting[private_key]', 'value': setting.private_key, 'type': 'textarea'},
                 {'label':text_merchant_private_key}, {'required':true}) }}
-        
+
         <div class="form-group">
             <label class="col-sm-2 control-label">{{ text_send_info_customer_status }}</label>
             <div class="col-sm-2">
@@ -110,13 +110,13 @@
     </div>
 
     <div class="tab-pane" id="tab-view">
-        
+
         {{ forms.Grouponoffswitch('setting[view][title_default]', setting.view.title_default, text_payment_tab_view_title_default) }}
-        
+
         {{ legCom.GroupLabelInput(
                 {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}, 'langs':languages}, 
                 {'label':text_payment_tab_view_title}, {}) }}
-                
+
         {{ forms.Grouponoffswitch('setting[view][icon]', setting.view.icon, text_payment_tab_view_icon) }}
 
     </div>
@@ -129,7 +129,25 @@
             text_sandbox_log, text_help_sandbox_log, '', true) }}      
 
 
-        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> {{ text_test_log_title }}</h3>
+                <div class="pull-right">
+                    <a id="log_refresh" onclick="nt_log_refresh()" data-toggle="tooltip" class="btn btn-warning">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                    <a href="{{ href_log_download }}" data-toggle="tooltip" class="btn btn-primary">
+                        <i class="fa fa-download"></i>
+                    </a>
+                    <a onclick="confirm('{{ ext_confirm }}') ? location = '{{ href_log_clear }}' : false;" data-toggle="tooltip" class="btn btn-danger">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <textarea wrap="off" rows="15" readonly class="form-control">{{ log }}</textarea>
+            </div>
+        </div>
 
     </div>
 </div>
