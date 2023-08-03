@@ -111,10 +111,12 @@
 
     <div class="tab-pane" id="tab-view">
         
+        {{ forms.Grouponoffswitch('setting[send_info][product]', setting.send_info.product) }}
+        
         {{ legCom.GroupLabelInput(
                 {'name':'setting[view][%s][title]','value':{'key_name':'title' ,'data':setting.view.title}, 'langs':languages}, 
                 {'label':text_payment_tab_view_title}, {}) }}
-
+                
         {#<div class="form-group">
             <label class="col-sm-2 control-label">{{ text_translate_description }}</label>
             <div class="col-sm-10">
