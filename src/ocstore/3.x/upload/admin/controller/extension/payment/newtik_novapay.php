@@ -6,7 +6,7 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
     protected $code = 'newtik_novapay';
     protected $path = 'extension/payment/newtik_novapay';
     protected $type = 'payment';
-    protected $version = '1.2.2';
+    protected $version = '1.2.3';
     protected $setting;
     
     protected $mod_templeate_view_old = true;
@@ -32,7 +32,9 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
         
         $data['urlLogRefresh'] = $this->mURL('/logReload_ajax');
         $data['urlLogDownload'] = $this->mURL('/log_download_file');
-
+        
+        
+        $data['viewLog'] = $this->viewLog();
         
         $this->viewOutputIndex($data ?? []);
 	}
