@@ -54,30 +54,21 @@ class ControllerExtensionPaymentNewtikNovapay extends Controller {
                 'title' => [],
             ],
             'sandbox' => [
-                'sandbox' => '0',
+                'status' => '0',
                 'log' => '0',
             ],
         ];
 
         $this->setting = $this->config->get('payment_newtik_novapay');
-        echo '<pre>';
-        var_dump($this->setting);
-        echo '</pre>';
         $this->settingDefault($settingDefault, $this->setting);
-        $this->debug = $this->setting[''] === "1";
-        
-        echo '<pre>';
-        var_dump($this->setting);
-        echo '</pre>';
-        die;
 
-        if ($this->config->get($this->prefix . 'rozetkapay_log_status') === "1") {
+        if ($this->setting['sandbox']['log'] === "1") {
             $this->extlog = new Log('rozetkapay');
         }
 
         $this->rpay = new \Payment\NovaPay\NovaPay();
 
-        if ($this->config->get($this->prefix . 'rozetkapay_test_status') === "1") {
+        if ($this->setting['sandbox']['status'] === "1") {
             $this->rpay->setBasicAuthTest();
         } else {
             $this->rpay->setBasicAuth($this->config->get($this->prefix . 'rozetkapay_login'), $this->config->get($this->prefix . 'rozetkapay_password'));
@@ -95,37 +86,27 @@ class ControllerExtensionPaymentNewtikNovapay extends Controller {
         return $this->load->view($this->path, $data);
     }
 
-    public function getConfig($name, $default = "0") {
-        $this->config->get($this->prefix . 'rozetkapay_qrcode_status');
-    }
-
     public function createPay() {
 
         $json = [];
 
-        $json['qrcode'] = false;
+        $json['qrcode'] = $this->setting['qr_code'];
         $json['pay'] = false;
-        $json['pay_holding'] = false;
+        $json['pay_holding'] = $this->setting['holding'];
 
         $json['alert'] = [];
 
         if ($this->session->data['payment_method']['code'] != $this->code) {
             return;
         }
-
-        $setting = $this->config->get(['payment_newtik_novapay']);
-
-        $status_qrcode = ($setting['qr_code'] ?? '0') === "1";
-        $json['qrcode'] = $status_qrcode;
-
-        $status_holding = ($setting['holding'] ?? '0') === "1";
+        
 
         $order_id = $this->session->data['order_id'];
 
         $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 
-        if ($order_info['order_status_id'] != ($setting['order_status']['init'] ?? '0')) {
-            $this->model_checkout_order->addOrderHistory($order_id, $this->config->get($this->prefix . 'rozetkapay_order_status_init'));
+        if ($order_info['order_status_id'] != $setting['order_status']['init']) {
+            $this->model_checkout_order->addOrderHistory($order_id, $this->config->get('NovaPay init'));
         }
 
         $this->rpay->setResultURL($this->url->link($this->path . '/result', 'order_id=' . $order_id, true));
@@ -135,7 +116,7 @@ class ControllerExtensionPaymentNewtikNovapay extends Controller {
 
         $dataCheckout = new \Payment\RozetkaPay\Model\PaymentCreateRequest();
 
-        if ($this->config->get($this->prefix . 'rozetkapay_send_info_customer_status') == "1") {
+        if ($this->setting['send_info']['customer'] == "1") {
 
             $customer = new \Payment\RozetkaPay\Model\Customer();
 
