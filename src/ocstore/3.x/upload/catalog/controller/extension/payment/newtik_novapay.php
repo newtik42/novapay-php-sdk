@@ -1,11 +1,15 @@
 <?php
 
+include_once DIR_SYSTEM . 'library/payment/novapay/autoloader.php';
+
 class ControllerExtensionPaymentNewtikNovapay extends Controller {
 
     public $path = 'extension/payment/newtik_novapay';
     public $code = 'newtik_novapay';
     private $setting;
     private $settingDefault = [];
+    
+    private $pay;
 
     public function settingDefault($settingDefault, &$val) {
 
@@ -66,10 +70,10 @@ class ControllerExtensionPaymentNewtikNovapay extends Controller {
             $this->extlog = new Log('rozetkapay');
         }
 
-        $this->rpay = new \Payment\NovaPay\NovaPay();
+        $this->pay = new \Payment\NovaPay\NovaPay();
 
         if ($this->setting['sandbox']['status'] === "1") {
-            $this->rpay->setBasicAuthTest();
+            \Payment\NovaPay\C
         } else {
             $this->rpay->setBasicAuth($this->config->get($this->prefix . 'rozetkapay_login'), $this->config->get($this->prefix . 'rozetkapay_password'));
         }
