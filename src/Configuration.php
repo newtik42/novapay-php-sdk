@@ -6,9 +6,9 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace Payment\NovaPay;
+namespace NewTik\NovaPay;
 
-use Payment\NovaPay\HttpClient\ClientInterface;
+use NewTik\NovaPay\HttpClient\ClientInterface;
 
 class Configuration {
     
@@ -150,7 +150,7 @@ class Configuration {
      */
     public static function setHttpClient($client) {
         if (is_string($client)) {
-            $HttpClient = '\\Payment\NovaPay\\HttpClient\\' . $client;
+            $HttpClient = '\\NewTik\\NovaPay\\HttpClient\\' . $client;
             if (class_exists($HttpClient)) {
                 return self::$HttpClient = new $HttpClient();
             }
@@ -158,7 +158,7 @@ class Configuration {
             return self::$HttpClient = $client;
         }
         trigger_error('Client Class not found or name set up incorrectly. Available clients: HttpCurl, HttpGuzzle', E_USER_NOTICE);
-        $HttpClient = '\\Payment\NovaPay\\HttpClient\\HttpCurl';
+        $HttpClient = '\\NewTik\\NovaPay\\HttpClient\\HttpCurl';
         return self::$HttpClient = new $HttpClient();
     }
     
