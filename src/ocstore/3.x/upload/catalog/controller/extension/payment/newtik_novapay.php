@@ -11,7 +11,7 @@ class ControllerExtensionPaymentNewtikNovapay extends Controller {
     }
     
     public function getSetting() {
-        
+        $this->config->get('sdfsdf');
         //$results = 
         
     }
