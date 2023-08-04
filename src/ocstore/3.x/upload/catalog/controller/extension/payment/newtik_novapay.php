@@ -1,16 +1,18 @@
 <?php
 
 class ControllerExtensionPaymentNewtikNovapay extends Controller {
+    
+    public $path = 'extension/payment/newtik_novapay';
 
     public function index() {
-        $this->load->language('extension/module/newtik_novapay');
+        $this->load->language($this->path);
         
         $data['button_confirm'] = $this->language->get('button_confirm');
         $data['button_pay'] = $this->language->get('button_pay');
         
-        $data['path'] = 'extension/module/newtik_novapay';
+        $data['path'] = $this->path;
 
-        return $this->load->view('extension/module/newtik_novapay', $data);
+        return $this->load->view($this->path, $data);
     }
     
     public function createPay() {
