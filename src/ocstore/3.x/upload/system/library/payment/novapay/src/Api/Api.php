@@ -6,11 +6,11 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace Payment\NovaPay\Api;
+namespace NewTik\NovaPay\Api;
 
-use Payment\NovaPay\Configuration;
-use Payment\NovaPay\Exception\ApiException;
-use Payment\NovaPay\Helper;
+use NewTik\NovaPay\Configuration;
+use NewTik\NovaPay\Exception\ApiException;
+use NewTik\NovaPay\Helper;
 
 class Api {
 

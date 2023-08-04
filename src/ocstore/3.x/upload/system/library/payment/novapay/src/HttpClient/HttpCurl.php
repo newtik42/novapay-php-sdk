@@ -6,11 +6,11 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace NewTik\API\NovaPay\HttpClient;
+namespace NewTik\NovaPay\HttpClient;
 
-use \NewTik\API\NovaPay\Exception\HttpClientException;
+use \NewTik\NovaPay\Exception\HttpClientException;
 
-class HttpCurl implements \NewTik\API\NovaPay\HttpClient\ClientInterface {
+class HttpCurl implements \NewTik\NovaPay\HttpClient\ClientInterface {
 
     /**
      * @var array

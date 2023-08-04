@@ -6,7 +6,7 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace NewTik\API\NovaPay\HttpClient;
+namespace NewTik\NovaPay\HttpClient;
 
 interface ClientInterface {
 

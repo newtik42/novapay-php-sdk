@@ -6,9 +6,9 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace Payment\NovaPay;
+namespace NewTik\NovaPay;
 
-use Payment\NovaPay\HttpClient\ClientInterface;
+use NewTik\NovaPay\HttpClient\ClientInterface;
 
 class Configuration {
     

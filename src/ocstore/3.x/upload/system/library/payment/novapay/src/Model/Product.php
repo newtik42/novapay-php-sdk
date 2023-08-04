@@ -6,7 +6,7 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace NewTik\API\NovaPay\Model;
+namespace NewTik\NovaPay\Model;
 
 class Product {   
     

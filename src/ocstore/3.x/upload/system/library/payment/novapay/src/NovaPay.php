@@ -6,14 +6,14 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace Payment\NovaPay;
-
-use Payment\NovaPay\A
+namespace NewTik\NovaPay;
 
 class NovaPay {
     
     public function session($session_id = '') {
         
     }
+    
+    
     
 }

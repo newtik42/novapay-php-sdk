@@ -6,7 +6,7 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace RozetkaPay\Exception;
+namespace NewTik\NovaPay\Exception;
 
 use Exception;
 
