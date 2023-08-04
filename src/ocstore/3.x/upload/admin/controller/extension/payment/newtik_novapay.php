@@ -6,12 +6,16 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
     protected $code = 'newtik_novapay';
     protected $path = 'extension/payment/newtik_novapay';
     protected $type = 'payment';
-    protected $version = '1.2.10';
+    protected $version = '1.2.11';
     protected $setting;
     
     protected $mod_templeate_view_old = true;
     protected $sys_log_status = false;
     protected $eCron_status = false;
+    
+    protected $lisrSettings = [
+        
+    ];
 
 	public function index() {
 		parent::index();
@@ -40,3 +44,4 @@ class ControllerExtensionpaymentNewtikNovapay extends AdminModuleController {
 	}
     
 } 
+
