@@ -1,6 +1,6 @@
 <?php
 
-namespace NewTik\API\NovaPay\Helper;
+namespace NewTik\NovaPay\Helper;
 
 use DateTime;
 use InvalidArgumentException;

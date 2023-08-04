@@ -6,8 +6,8 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace RozetkaPay\Exception;
+namespace NewTik\NovaPay\Exception;
 
-class HttpClientException extends \RozetkaPay\Exception\MainException {
+class HttpClientException extends \NewTik\NovaPay\Exception\MainException {
     
 }

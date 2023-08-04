@@ -1,8 +1,8 @@
 <?php
 
-namespace NewTik\API\NovaPay\Helper;
+namespace NewTik\NovaPay\Helper;
 
-use NewTik\API\NovaPay\Configuration;
+use NewTik\NovaPay\Configuration;
 
 class ApiHelper {
 

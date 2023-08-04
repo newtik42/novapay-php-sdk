@@ -8,8 +8,6 @@
 
 namespace Payment\NovaPay;
 
-use Payment\NovaPay\A
-
 class NovaPay {
     
     public function session($session_id = '') {

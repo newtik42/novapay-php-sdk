@@ -8,12 +8,7 @@ spl_autoload_register(function ($class_name) {
         return;
     }
     array_shift($classs);
-    
-    if (current($classs) != 'API'){
-        return;
-    }
-    array_shift($classs);
-    
+        
     if (current($classs) != 'NovaPay'){
         return;
     }    

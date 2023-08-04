@@ -6,9 +6,9 @@
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
 
-namespace NewTik\API\NovaPay\Model;
+namespace NewTik\NovaPay\Model;
 
-class RequestPayment extends \NewTik\API\NovaPay\Model\Model {
+class RequestPayment extends \NewTik\NovaPay\Model\Model {
 
     /**
      * var int

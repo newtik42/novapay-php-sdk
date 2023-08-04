@@ -5,9 +5,9 @@
 /* 	@support	https://newtik-opencart.com/			  */
 /* 	@license	LICENSE.txt								  */
 /* * ******************************************************* */
-namespace NewTik\API\NovaPay\Api;
+namespace NewTik\NovaPay\Api;
 
-class Payment extends \NewTik\API\NovaPay\Api\Api{
+class Payment extends \NewTik\NovaPay\Api\Api{
     
     protected $url = '';
     
